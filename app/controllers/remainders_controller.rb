@@ -1,0 +1,2 @@
+class RemaindersController < ApplicationController
+end

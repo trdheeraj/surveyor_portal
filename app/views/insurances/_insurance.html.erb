@@ -1,0 +1,22 @@
+<div class="table-responsive">
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+			  <th>Insurer Name</th>
+			  <th>GST Number</th>
+			  <th>Location</th>
+			  <th>Action</th>
+			</tr>
+		</thead>
+	  <tbody>
+	  	<% obj.each do |insurance| %>
+				<tr>
+					<td><%= insurance.name %></td>
+					<td><%= insurance.gst_number %></td>
+					<td><%= insurance.location %></td>
+					<td><%= link_to "Edit", edit_insurance_path(insurance) %> | <%= link_to "Delete", insurance_path(insurance), method: :delete, data: { confirm: "Are you sure you want to delete this Insurance?"}  %></td>
+				</tr>
+			<% end %>
+	  </tbody>
+	</table>
+</div>

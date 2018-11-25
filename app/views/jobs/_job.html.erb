@@ -1,0 +1,58 @@
+<div class="table-responsive">
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>Job No</th>
+			  <th>Department</th>
+			  <th>Insurer</th>
+			  <th>GST Number</th>
+			  <th>Insurer Loc</th>
+			  <th>Insured</th>
+			  <th>DOL</th>
+			  <th>DOI</th>
+			  <th>Description</th>
+			  <th>Status</th>
+			  <th>ILA</th>
+			  <th>LOR</th>
+			  <th>Rep.No</th>
+			  <th>Bill No</th>
+			  <th>Gross Loss</th>
+			  <th>Action</th>
+			</tr>
+		</thead>
+	  <tbody>
+	  	<% obj.each do |job| %>
+				<tr>
+					<td><%= job.job_number %></td>
+					<td><%= job.department.name %></td>
+					<td><%= job.insurance.name %></td>
+					<td><%= job.insurance.gst_number %></td>
+					<td><%= job.insurance.location %></td>
+					<td><%= job.customer_name %></td>
+					<td><%= job.dol %></td>
+					<td><%= job.doi %></td>
+					<td><%= job.description %></td>
+					<td><%= job.status %></td>
+					<td><%= job&.job_status&.ila_date %></td>
+					<td><%= job&.job_status&.lor_date %></td>
+					<% if job.report_number %>
+						<td><%= job.report_number %></td>
+					<% else %>
+						<td><%= link_to "Generate Report Number", jobs_path(job_id: job.id, report_number: true) %></td>
+					<% end %>
+					<% if job.bill_number %>
+						<td><%= job.bill_number %></td>
+					<% else %>
+						<td><%= link_to "Generate Bill Number", jobs_path(job_id: job.id, bill_number: true) %></td>
+					<% end %>
+					<% if job.gross_loss %>
+						<td><%= job.gross_loss %></td>
+					<% else %>
+						<td><%= link_to "Add", new_gross_loss_path(id: job) %></td>
+					<% end %>
+					<td><%= link_to "Edit", edit_job_path(job) %> | <%= link_to "Delete", job_path(job), method: :delete, data: { confirm: "Are you sure you want to delete this Job?"}  %></td>
+				</tr>
+			<% end %>
+	  </tbody>
+	</table>
+</div>

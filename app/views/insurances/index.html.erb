@@ -1,0 +1,13 @@
+<h1 align="center"> Listing all the Insurances </h1>
+<div class="container">
+	<div align="right">
+		<a href="<%= new_insurance_path %>" class="btn btn-primary" role="button" aria-pressed="true">Add Insurance</a>
+	</div>
+</div>
+<div align="center">
+	<%= will_paginate %>
+</div>
+<%= render 'insurance', obj: @insurances %>
+<div align="center">
+	<%= will_paginate %>
+</div>

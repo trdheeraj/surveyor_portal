@@ -1,0 +1,2 @@
+module DocumentReceivedHelper
+end

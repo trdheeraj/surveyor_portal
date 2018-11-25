@@ -1,0 +1,13 @@
+<h1 align="center"> Listing all the Jobs </h1>
+<div class="container">
+	<div align="right">
+		<a href="<%= new_job_path %>" class="btn btn-primary" role="button" aria-pressed="true">Add Job</a>
+	</div>
+</div>
+<div align="center">
+	<%= will_paginate %>
+</div>
+<%= render 'job', obj: @jobs %>
+<div align="center">
+	<%= will_paginate %>
+</div>

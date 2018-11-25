@@ -1,0 +1,115 @@
+<%= render 'shared/errors', obj: @job %>
+
+<div class="row">
+	<div class="col-xs-12">
+		<%= form_for(@job, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">
+					<%= f.label :department %>
+				</div>
+				<div class="col-sm-8">
+					<%= f.collection_select :department_id, Department.all, :id, :name %>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">
+					<%= f.label :insurance %>
+				</div>
+				<div class="col-sm-8">
+					<%= f.collection_select :insurance_id, Insurance.all, :id, :name %>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">
+					<%= f.label :customer_name %>
+				</div>
+				<div class="col-sm-8">
+					<%= f.text_field :customer_name, class: "form-control", placeholder: "Insured", autofocus: true %>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">
+					<%= f.label :description %>
+				</div>
+				<div class="col-sm-8">
+					<%= f.text_field :description, class: "form-control", placeholder: "Description of an Job" %>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">
+					<%= f.label :branch %>
+				</div>
+				<div class="col-sm-8">
+					<%= f.text_field :branch, class: "form-control", placeholder: "Branch Name", autofocus: true %>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">
+					<%= f.label :state %>
+				</div>
+				<div class="col-sm-8">
+					<%= f.select :state, options_for_select(t('states')), :class => 'form-control' %>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">
+					<%= f.label :appointed_by %>
+				</div>
+				<div class="col-sm-8">
+					<%= f.text_field :appointed_by, class: "form-control", placeholder: "Appointed By", autofocus: true %>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">
+					<%= f.label :date_of_loss %>
+				</div>
+				<div class="col-sm-8">
+					<%= f.date_field :dol, class: "form-control", placeholder: "Date of Loss", autofocus: true %>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">
+					<%= f.label :date_of_intimation %>
+				</div>
+				<div class="col-sm-8">
+					<%= f.date_field :doi, class: "form-control", placeholder: "Date of Initmation", autofocus: true %>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">
+					<%= f.label :status %>
+				</div>
+				<div class="col-sm-8">
+					<%= f.select :status, options_for_select(t('status')), :class => 'form-control' %>
+				</div>
+			</div>
+			<% if @job.gross_loss %>
+				<div class="form-group">
+					<div class="col-sm-2 control-label">
+						<%= f.label :gross_loss %>
+					</div>
+					<div class="col-sm-8">
+						<%= f.text_field :gross_loss, class: "form-control", value: @job.gross_loss, autofocus: true %>
+					</div>
+				</div>
+			<% end %>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">
+			    <%= f.label "All Documents Received?" %>
+			  </div>
+				<div class="col-sm-8">
+			    <%= f.check_box :all_documents_received %> <br />
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<%= f.submit class: "btn btn-primary btn-lg" %>
+				</div>
+			</div>
+		<% end %>
+
+		<div class="col-xs-4 col-xs-offset-4">
+			[ <%= link_to "Cancel request and Back to jobs listing", jobs_path %> ]
+		</div>
+	</div>
+</div>

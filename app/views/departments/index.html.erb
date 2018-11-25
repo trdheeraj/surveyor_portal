@@ -1,0 +1,13 @@
+<h1 align="center"> Listing all the Departments </h1>
+<div class="container">
+	<div align="right">
+		<a href="<%= new_department_path %>" class="btn btn-primary" role="button" aria-pressed="true">Add Department</a>
+	</div>
+</div>
+<div align="center">
+	<%= will_paginate %>
+</div>
+<%= render 'department', obj: @departments %>
+<div align="center">
+	<%= will_paginate %>
+</div>
