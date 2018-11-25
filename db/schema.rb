@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_18_153109) do
+ActiveRecord::Schema.define(version: 2018_11_25_121452) do
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2018_11_18_153109) do
 
   create_table "document_receiveds", force: :cascade do |t|
     t.integer "job_id"
-    t.datetime "date"
+    t.date "date"
     t.index ["job_id"], name: "index_document_receiveds_on_job_id"
   end
 
@@ -37,10 +37,8 @@ ActiveRecord::Schema.define(version: 2018_11_18_153109) do
 
   create_table "job_statuses", force: :cascade do |t|
     t.integer "job_id"
-    t.boolean "ila"
-    t.datetime "ila_date"
-    t.boolean "lor"
-    t.datetime "lor_date"
+    t.date "ila_date"
+    t.date "lor_date"
     t.index ["job_id"], name: "index_job_statuses_on_job_id"
   end
 
@@ -66,7 +64,7 @@ ActiveRecord::Schema.define(version: 2018_11_18_153109) do
 
   create_table "remainders", force: :cascade do |t|
     t.integer "job_id"
-    t.datetime "date"
+    t.date "date"
     t.index ["job_id"], name: "index_remainders_on_job_id"
   end
 

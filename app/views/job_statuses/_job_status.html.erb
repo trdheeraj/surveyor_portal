@@ -1,0 +1,22 @@
+<div class="table-responsive">
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+			  <th>Job Id</th>
+			  <th>ILA Date</th>
+			  <th>LOR Date</th>
+			  <th>Action</th>
+			</tr>
+		</thead>
+	  <tbody>
+	  	<% obj.each do |job_status| %>
+				<tr>
+					<td><%= job_status.job_id %></td>
+					<td><%= job_status.ila_date %></td>
+					<td><%= job_status.lor_date %></td>
+					<td><%= link_to "Edit", edit_job_status_path(job_status) %> | <%= link_to "Delete", job_status_path(job_status), method: :delete, data: { confirm: "Are you sure you want to delete this Job Status?"}  %></td>
+				</tr>
+			<% end %>
+	  </tbody>
+	</table>
+</div>

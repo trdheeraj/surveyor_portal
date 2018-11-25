@@ -1,0 +1,13 @@
+<h1 align="center"> Listing all the Job Status </h1>
+<div class="container">
+	<div align="right">
+		<a href="<%= new_job_status_path %>" class="btn btn-primary" role="button" aria-pressed="true">Add Job Status</a>
+	</div>
+</div>
+<div align="center">
+	<%= will_paginate %>
+</div>
+<%= render 'job_status', obj: @job_statuses %>
+<div align="center">
+	<%= will_paginate %>
+</div>

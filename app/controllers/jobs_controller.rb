@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
 	before_action :set_job, only: [:edit, :update, :destroy, :add_gross_loss, :new_gross_loss]
 	def index
-		@jobs = Job.paginate(page: params[:page], per_page: 5)
+		@jobs = Job.paginate(page: params[:page], per_page: 10)
 		generate_report_number_and_bill_number if params[:job_id]
 	end
 

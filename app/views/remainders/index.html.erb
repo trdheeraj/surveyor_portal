@@ -1,0 +1,13 @@
+<h1 align="center"> Listing all the Remainders </h1>
+<div class="container">
+	<div align="right">
+		<a href="<%= new_remainder_path %>" class="btn btn-primary" role="button" aria-pressed="true">Add Remainder</a>
+	</div>
+</div>
+<div align="center">
+	<%= will_paginate %>
+</div>
+<%= render 'remainder', obj: @remainders %>
+<div align="center">
+	<%= will_paginate %>
+</div>

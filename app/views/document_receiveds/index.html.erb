@@ -1,0 +1,13 @@
+<h1 align="center"> Listing all the Document Received </h1>
+<div class="container">
+	<div align="right">
+		<a href="<%= new_document_received_path %>" class="btn btn-primary" role="button" aria-pressed="true">Add Document Received</a>
+	</div>
+</div>
+<div align="center">
+	<%= will_paginate %>
+</div>
+<%= render 'document_received', obj: @document_receiveds %>
+<div align="center">
+	<%= will_paginate %>
+</div>

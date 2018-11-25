@@ -1,0 +1,20 @@
+<div class="table-responsive">
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+			  <th>Job Id</th>
+			  <th>Date</th>
+			  <th>Action</th>
+			</tr>
+		</thead>
+	  <tbody>
+	  	<% obj.each do |remainder| %>
+				<tr>
+					<td><%= remainder.job_id %></td>
+					<td><%= remainder.date %></td>
+					<td><%= link_to "Edit", edit_remainder_path(remainder) %> | <%= link_to "Delete", remainder_path(remainder), method: :delete, data: { confirm: "Are you sure you want to delete this Remainder?"}  %></td>
+				</tr>
+			<% end %>
+	  </tbody>
+	</table>
+</div>

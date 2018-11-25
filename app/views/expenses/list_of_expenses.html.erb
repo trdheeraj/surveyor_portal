@@ -1,0 +1,13 @@
+<h1 align="center"> Listing all the Expenses </h1>
+<div class="container">
+	<div align="right">
+		<a href="<%= jobs_path %>" class="btn btn-primary" role="button" aria-pressed="true">Back to Job List</a>
+	</div>
+</div>
+<div align="center">
+	<%= will_paginate %>
+</div>
+<%= render 'expense', obj: @expenses %>
+<div align="center">
+	<%= will_paginate %>
+</div>

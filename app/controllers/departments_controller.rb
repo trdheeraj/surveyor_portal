@@ -1,7 +1,7 @@
 class DepartmentsController < ApplicationController
 	before_action :set_department, only: [:edit, :update, :destroy]
 	def index
-		@departments = Department.paginate(page: params[:page], per_page: 5)
+		@departments = Department.paginate(page: params[:page], per_page: 10)
 	end
 
 	def new

@@ -1,7 +1,7 @@
 class InsurancesController < ApplicationController
 	before_action :set_insurance, only: [:edit, :update, :destroy]
 	def index
-		@insurances = Insurance.paginate(page: params[:page], per_page: 5)
+		@insurances = Insurance.paginate(page: params[:page], per_page: 10)
 	end
 
 	def new
