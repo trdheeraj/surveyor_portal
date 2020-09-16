@@ -7,6 +7,34 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdn.jsdelivr.net/npm/rrweb@latest/dist/rrweb.min.js"></script>
+    <script>
+      let events = [];
+      rrweb.record({
+        emit(event) {
+          events.push(event);
+        },
+      });
+      // this function will download events as json file for every 10 seconds and reset the events array
+      function save() {
+        const body = JSON.stringify({ events });
+        events = [];
+          var count = 0;
+
+          var fileName =  'events_'+count+".json";
+          count++;
+          download(body, fileName ,'text/plain');
+      }
+      // save events every 30 seconds
+      setInterval(save, 30 * 1000);
+      function download(content, fileName, contentType) {
+        var a = document.createElement("a");
+        var file = new Blob([content], {type: contentType});
+        a.href = URL.createObjectURL(file);
+        a.download = fileName;
+        a.click();
+      }
+    </script>
   </head>
 
   <body>
